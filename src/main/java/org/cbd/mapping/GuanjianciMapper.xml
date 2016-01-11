@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cbd.mapper.GuanjianciMapper" >
+  <resultMap id="BaseResultMap" type="org.cbd.pojo.Guanjianci" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="wangzhan" property="wangzhan" jdbcType="VARCHAR" />
+    <result column="Year" property="year" jdbcType="VARCHAR" />
+    <result column="Month" property="month" jdbcType="VARCHAR" />
+    <result column="Day" property="day" jdbcType="VARCHAR" />
+    <result column="Hour" property="hour" jdbcType="VARCHAR" />
+    <result column="Xingqi" property="xingqi" jdbcType="VARCHAR" />
+    <result column="GJC" property="gjc" jdbcType="VARCHAR" />
+    <result column="GJCcishu" property="gjccishu" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, wangzhan, Year, Month, Day, Hour, Xingqi, GJC, GJCcishu
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from guanjianci
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from guanjianci
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.cbd.pojo.Guanjianci" >
+    insert into guanjianci (id, wangzhan, Year, 
+      Month, Day, Hour, Xingqi, 
+      GJC, GJCcishu)
+    values (#{id,jdbcType=INTEGER}, #{wangzhan,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{month,jdbcType=VARCHAR}, #{day,jdbcType=VARCHAR}, #{hour,jdbcType=VARCHAR}, #{xingqi,jdbcType=VARCHAR}, 
+      #{gjc,jdbcType=VARCHAR}, #{gjccishu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.cbd.pojo.Guanjianci" >
+    insert into guanjianci
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="wangzhan != null" >
+        wangzhan,
+      </if>
+      <if test="year != null" >
+        Year,
+      </if>
+      <if test="month != null" >
+        Month,
+      </if>
+      <if test="day != null" >
+        Day,
+      </if>
+      <if test="hour != null" >
+        Hour,
+      </if>
+      <if test="xingqi != null" >
+        Xingqi,
+      </if>
+      <if test="gjc != null" >
+        GJC,
+      </if>
+      <if test="gjccishu != null" >
+        GJCcishu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="wangzhan != null" >
+        #{wangzhan,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null" >
+        #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="hour != null" >
+        #{hour,jdbcType=VARCHAR},
+      </if>
+      <if test="xingqi != null" >
+        #{xingqi,jdbcType=VARCHAR},
+      </if>
+      <if test="gjc != null" >
+        #{gjc,jdbcType=VARCHAR},
+      </if>
+      <if test="gjccishu != null" >
+        #{gjccishu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.cbd.pojo.Guanjianci" >
+    update guanjianci
+    <set >
+      <if test="wangzhan != null" >
+        wangzhan = #{wangzhan,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        Year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        Month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null" >
+        Day = #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="hour != null" >
+        Hour = #{hour,jdbcType=VARCHAR},
+      </if>
+      <if test="xingqi != null" >
+        Xingqi = #{xingqi,jdbcType=VARCHAR},
+      </if>
+      <if test="gjc != null" >
+        GJC = #{gjc,jdbcType=VARCHAR},
+      </if>
+      <if test="gjccishu != null" >
+        GJCcishu = #{gjccishu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.cbd.pojo.Guanjianci" >
+    update guanjianci
+    set wangzhan = #{wangzhan,jdbcType=VARCHAR},
+      Year = #{year,jdbcType=VARCHAR},
+      Month = #{month,jdbcType=VARCHAR},
+      Day = #{day,jdbcType=VARCHAR},
+      Hour = #{hour,jdbcType=VARCHAR},
+      Xingqi = #{xingqi,jdbcType=VARCHAR},
+      GJC = #{gjc,jdbcType=VARCHAR},
+      GJCcishu = #{gjccishu,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

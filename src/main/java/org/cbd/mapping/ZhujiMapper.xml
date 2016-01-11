@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cbd.mapper.ZhujiMapper" >
+  <resultMap id="BaseResultMap" type="org.cbd.pojo.Zhuji" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="wangzhan" property="wangzhan" jdbcType="VARCHAR" />
+    <result column="Year" property="year" jdbcType="VARCHAR" />
+    <result column="Month" property="month" jdbcType="VARCHAR" />
+    <result column="Day" property="day" jdbcType="VARCHAR" />
+    <result column="Hour" property="hour" jdbcType="VARCHAR" />
+    <result column="Xingqi" property="xingqi" jdbcType="VARCHAR" />
+    <result column="ZJip" property="zjip" jdbcType="VARCHAR" />
+    <result column="ZJwangyeshu" property="zjwangyeshu" jdbcType="VARCHAR" />
+    <result column="ZJwenjianshu" property="zjwenjianshu" jdbcType="VARCHAR" />
+    <result column="ZJzijie" property="zjzijie" jdbcType="VARCHAR" />
+    <result column="ZJriqi" property="zjriqi" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, wangzhan, Year, Month, Day, Hour, Xingqi, ZJip, ZJwangyeshu, ZJwenjianshu, ZJzijie, 
+    ZJriqi
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhuji
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from zhuji
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.cbd.pojo.Zhuji" >
+    insert into zhuji (id, wangzhan, Year, 
+      Month, Day, Hour, Xingqi, 
+      ZJip, ZJwangyeshu, ZJwenjianshu, 
+      ZJzijie, ZJriqi)
+    values (#{id,jdbcType=INTEGER}, #{wangzhan,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{month,jdbcType=VARCHAR}, #{day,jdbcType=VARCHAR}, #{hour,jdbcType=VARCHAR}, #{xingqi,jdbcType=VARCHAR}, 
+      #{zjip,jdbcType=VARCHAR}, #{zjwangyeshu,jdbcType=VARCHAR}, #{zjwenjianshu,jdbcType=VARCHAR}, 
+      #{zjzijie,jdbcType=VARCHAR}, #{zjriqi,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.cbd.pojo.Zhuji" >
+    insert into zhuji
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="wangzhan != null" >
+        wangzhan,
+      </if>
+      <if test="year != null" >
+        Year,
+      </if>
+      <if test="month != null" >
+        Month,
+      </if>
+      <if test="day != null" >
+        Day,
+      </if>
+      <if test="hour != null" >
+        Hour,
+      </if>
+      <if test="xingqi != null" >
+        Xingqi,
+      </if>
+      <if test="zjip != null" >
+        ZJip,
+      </if>
+      <if test="zjwangyeshu != null" >
+        ZJwangyeshu,
+      </if>
+      <if test="zjwenjianshu != null" >
+        ZJwenjianshu,
+      </if>
+      <if test="zjzijie != null" >
+        ZJzijie,
+      </if>
+      <if test="zjriqi != null" >
+        ZJriqi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="wangzhan != null" >
+        #{wangzhan,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null" >
+        #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="hour != null" >
+        #{hour,jdbcType=VARCHAR},
+      </if>
+      <if test="xingqi != null" >
+        #{xingqi,jdbcType=VARCHAR},
+      </if>
+      <if test="zjip != null" >
+        #{zjip,jdbcType=VARCHAR},
+      </if>
+      <if test="zjwangyeshu != null" >
+        #{zjwangyeshu,jdbcType=VARCHAR},
+      </if>
+      <if test="zjwenjianshu != null" >
+        #{zjwenjianshu,jdbcType=VARCHAR},
+      </if>
+      <if test="zjzijie != null" >
+        #{zjzijie,jdbcType=VARCHAR},
+      </if>
+      <if test="zjriqi != null" >
+        #{zjriqi,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.cbd.pojo.Zhuji" >
+    update zhuji
+    <set >
+      <if test="wangzhan != null" >
+        wangzhan = #{wangzhan,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        Year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        Month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null" >
+        Day = #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="hour != null" >
+        Hour = #{hour,jdbcType=VARCHAR},
+      </if>
+      <if test="xingqi != null" >
+        Xingqi = #{xingqi,jdbcType=VARCHAR},
+      </if>
+      <if test="zjip != null" >
+        ZJip = #{zjip,jdbcType=VARCHAR},
+      </if>
+      <if test="zjwangyeshu != null" >
+        ZJwangyeshu = #{zjwangyeshu,jdbcType=VARCHAR},
+      </if>
+      <if test="zjwenjianshu != null" >
+        ZJwenjianshu = #{zjwenjianshu,jdbcType=VARCHAR},
+      </if>
+      <if test="zjzijie != null" >
+        ZJzijie = #{zjzijie,jdbcType=VARCHAR},
+      </if>
+      <if test="zjriqi != null" >
+        ZJriqi = #{zjriqi,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.cbd.pojo.Zhuji" >
+    update zhuji
+    set wangzhan = #{wangzhan,jdbcType=VARCHAR},
+      Year = #{year,jdbcType=VARCHAR},
+      Month = #{month,jdbcType=VARCHAR},
+      Day = #{day,jdbcType=VARCHAR},
+      Hour = #{hour,jdbcType=VARCHAR},
+      Xingqi = #{xingqi,jdbcType=VARCHAR},
+      ZJip = #{zjip,jdbcType=VARCHAR},
+      ZJwangyeshu = #{zjwangyeshu,jdbcType=VARCHAR},
+      ZJwenjianshu = #{zjwenjianshu,jdbcType=VARCHAR},
+      ZJzijie = #{zjzijie,jdbcType=VARCHAR},
+      ZJriqi = #{zjriqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

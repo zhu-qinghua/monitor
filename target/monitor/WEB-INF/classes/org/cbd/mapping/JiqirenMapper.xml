@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cbd.mapper.JiqirenMapper" >
+  <resultMap id="BaseResultMap" type="org.cbd.pojo.Jiqiren" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="wangzhan" property="wangzhan" jdbcType="VARCHAR" />
+    <result column="Year" property="year" jdbcType="VARCHAR" />
+    <result column="Month" property="month" jdbcType="VARCHAR" />
+    <result column="Day" property="day" jdbcType="VARCHAR" />
+    <result column="Hour" property="hour" jdbcType="VARCHAR" />
+    <result column="Xingqi" property="xingqi" jdbcType="VARCHAR" />
+    <result column="JQR" property="jqr" jdbcType="VARCHAR" />
+    <result column="JQRwenjianshu" property="jqrwenjianshu" jdbcType="VARCHAR" />
+    <result column="JQRzijie" property="jqrzijie" jdbcType="VARCHAR" />
+    <result column="JQRriqi" property="jqrriqi" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, wangzhan, Year, Month, Day, Hour, Xingqi, JQR, JQRwenjianshu, JQRzijie, JQRriqi
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jiqiren
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jiqiren
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.cbd.pojo.Jiqiren" >
+    insert into jiqiren (id, wangzhan, Year, 
+      Month, Day, Hour, Xingqi, 
+      JQR, JQRwenjianshu, JQRzijie, 
+      JQRriqi)
+    values (#{id,jdbcType=INTEGER}, #{wangzhan,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{month,jdbcType=VARCHAR}, #{day,jdbcType=VARCHAR}, #{hour,jdbcType=VARCHAR}, #{xingqi,jdbcType=VARCHAR}, 
+      #{jqr,jdbcType=VARCHAR}, #{jqrwenjianshu,jdbcType=VARCHAR}, #{jqrzijie,jdbcType=VARCHAR}, 
+      #{jqrriqi,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.cbd.pojo.Jiqiren" >
+    insert into jiqiren
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="wangzhan != null" >
+        wangzhan,
+      </if>
+      <if test="year != null" >
+        Year,
+      </if>
+      <if test="month != null" >
+        Month,
+      </if>
+      <if test="day != null" >
+        Day,
+      </if>
+      <if test="hour != null" >
+        Hour,
+      </if>
+      <if test="xingqi != null" >
+        Xingqi,
+      </if>
+      <if test="jqr != null" >
+        JQR,
+      </if>
+      <if test="jqrwenjianshu != null" >
+        JQRwenjianshu,
+      </if>
+      <if test="jqrzijie != null" >
+        JQRzijie,
+      </if>
+      <if test="jqrriqi != null" >
+        JQRriqi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="wangzhan != null" >
+        #{wangzhan,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null" >
+        #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="hour != null" >
+        #{hour,jdbcType=VARCHAR},
+      </if>
+      <if test="xingqi != null" >
+        #{xingqi,jdbcType=VARCHAR},
+      </if>
+      <if test="jqr != null" >
+        #{jqr,jdbcType=VARCHAR},
+      </if>
+      <if test="jqrwenjianshu != null" >
+        #{jqrwenjianshu,jdbcType=VARCHAR},
+      </if>
+      <if test="jqrzijie != null" >
+        #{jqrzijie,jdbcType=VARCHAR},
+      </if>
+      <if test="jqrriqi != null" >
+        #{jqrriqi,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.cbd.pojo.Jiqiren" >
+    update jiqiren
+    <set >
+      <if test="wangzhan != null" >
+        wangzhan = #{wangzhan,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        Year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        Month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="day != null" >
+        Day = #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="hour != null" >
+        Hour = #{hour,jdbcType=VARCHAR},
+      </if>
+      <if test="xingqi != null" >
+        Xingqi = #{xingqi,jdbcType=VARCHAR},
+      </if>
+      <if test="jqr != null" >
+        JQR = #{jqr,jdbcType=VARCHAR},
+      </if>
+      <if test="jqrwenjianshu != null" >
+        JQRwenjianshu = #{jqrwenjianshu,jdbcType=VARCHAR},
+      </if>
+      <if test="jqrzijie != null" >
+        JQRzijie = #{jqrzijie,jdbcType=VARCHAR},
+      </if>
+      <if test="jqrriqi != null" >
+        JQRriqi = #{jqrriqi,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.cbd.pojo.Jiqiren" >
+    update jiqiren
+    set wangzhan = #{wangzhan,jdbcType=VARCHAR},
+      Year = #{year,jdbcType=VARCHAR},
+      Month = #{month,jdbcType=VARCHAR},
+      Day = #{day,jdbcType=VARCHAR},
+      Hour = #{hour,jdbcType=VARCHAR},
+      Xingqi = #{xingqi,jdbcType=VARCHAR},
+      JQR = #{jqr,jdbcType=VARCHAR},
+      JQRwenjianshu = #{jqrwenjianshu,jdbcType=VARCHAR},
+      JQRzijie = #{jqrzijie,jdbcType=VARCHAR},
+      JQRriqi = #{jqrriqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
